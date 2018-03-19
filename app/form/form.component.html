@@ -1,0 +1,30 @@
+<div class="contentForm">
+  <mat-card>
+    <mat-card-title>Add New Node Form</mat-card-title>
+    <mat-card-content>
+      <form class="form" [formGroup]="form" fxLayout="column" (submit)="onFormSubmit()">
+
+        <mat-form-field>
+          <mat-select 
+            formControlName="parentId" 
+            [ngModel]="selectid" 
+            placeholder="Parent Node"
+            (selectionChange)="selectionChange($event)">
+            <mat-option *ngFor="let option of options" [value]="option.id">
+              {{option.name}}
+            </mat-option>            
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput #nameInput formControlName="newNodeName" placeholder="Node Name">
+        </mat-form-field>
+
+        <button aria-label="add contact" class="mat-warning-bg mat-fab mat-accent">
+          Add Node
+        </button>
+
+      </form>  
+    </mat-card-content>
+  </mat-card>
+</div>

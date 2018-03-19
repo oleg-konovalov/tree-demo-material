@@ -1,0 +1,21 @@
+<div class="app">
+  <mat-toolbar color="primary">
+      <span class="title">Angular Tree Demo Using Tree Component and Material</span>
+    </mat-toolbar>
+
+  <mat-sidenav-container [class.m2app-dark]="isDarkTheme" fxFlexFill>
+    <mat-sidenav #sidenav mode="side" class="app-sidenav" color="primary">
+      <tree-root 
+        #tree 
+        [nodes]="nodes" 
+        (focus)="onChangeEvent($event)"></tree-root>
+    </mat-sidenav>
+    <div class="app-content">
+        <app-content-form 
+        [nodes]="nodes" 
+        [selectid]="selectid" 
+        (onNodesChange)="onNodesChange($event)"
+        (onSelectChange)="onSelectChange($event)"></app-content-form>
+    </div>
+  </mat-sidenav-container>
+</div>
